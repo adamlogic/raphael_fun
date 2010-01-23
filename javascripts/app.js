@@ -7,7 +7,6 @@ $(function() {
     x = e.pageX - canvas.offset().left;
     y = e.pageY - canvas.offset().top;
     rect = paper.image('http://www.google.com/intl/en_ALL/images/logo.gif', x, y, 1, 1);
-    rect.attr({fill: '#f00', 'stroke-width': 0});
 
     rect.attr({'clip-rect': '0 0 0 0'});
     clipWrapper = $(rect.jq().attr('clip-path').match(/\((.*)\)/)[1]);
@@ -22,11 +21,10 @@ $(function() {
           height = Math.max(0, height);
       rect.attr({ width: width, height: height });
       clip.attr({ cx: x + width/2, cy: y + height/2, rx: width/2, ry: height/2 });
+    }).one('mouseup', function(e) {
+      $('body').unbind('mousemove');
+      rect.draggable();
     });
-  }).mouseup(function(e) {
-    $('body').unbind('mousemove');
-
-    rect.draggable();
   });
 
 });
