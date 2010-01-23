@@ -27,6 +27,25 @@ $(function() {
     });
   });
 
+  $('#images').hover(function() {
+    $(this).animate({width: '600px'});
+  }, function() {
+    $(this).animate({width: '200px'});
+  });
+
+  $.getJSON("http://api.flickr.com/services/feeds/photoset.gne?set=72157623197061266&nsid=86613980@N00&lang=en-us&format=json&jsoncallback=?", function(data){
+    $.each(data.items, function(i,item){
+      $("<img/>").attr("src", item.media.m).appendTo("#images .container")
+        .wrap("<a href='#'></a>");
+    });
+  });
+
+  $('#images a').live('click', function() {
+    var image = paper.image($(this).find('img').attr('src'), 20, 20, 100, 100);
+    image.draggable();
+    return false;
+  });
+
 });
 
 Raphael.el.jq = function() { 

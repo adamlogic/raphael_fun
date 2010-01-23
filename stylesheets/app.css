@@ -1,1 +1,9 @@
-#canvas { position: absolute; left: 200px; width: 600px; height: 400px; background-color: #eee; }
+body { background-color: #cca; }
+
+#canvas { position: absolute; left: 100px; top: 20px; width: 700px; height: 700px; background-color: #fff; }
+
+#images { position: absolute; right: 0; top: 40px; width: 200px; background-color: #000; overflow: hidden; }
+#images .container { width: 99999px; }
+#images a img { margin: 10px; border: 1px solid #666; }
+
+
