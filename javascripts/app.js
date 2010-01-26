@@ -41,7 +41,11 @@ $(function() {
   });
 
   $('#images a').live('click', function() {
-    var image = paper.image($(this).find('img').attr('src'), 20, 20, 100, 100);
+    var img = $(this).find('img'),
+        src = img.attr('src').replace(/m\.jpg/, 'b.jpg'),
+        aspect = img.width() / img.height(),
+        image = paper.image(src, 20, 20, 400, 400 / aspect);
+
     image.draggable();
     return false;
   });

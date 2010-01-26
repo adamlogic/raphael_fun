@@ -4,6 +4,7 @@ body { background-color: #cca; }
 
 #images { position: absolute; right: 0; top: 40px; width: 200px; background-color: #000; overflow: hidden; }
 #images .container { width: 99999px; }
-#images a img { margin: 10px; border: 1px solid #666; }
+#images a img { margin: 3px; border: 1px solid #666; height: 50px; }
+
 
 
